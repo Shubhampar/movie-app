@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import {
   Box,
   Input,
@@ -6,12 +7,12 @@ import {
   FormControl,
   FormLabel,
   Heading,
-  Text,
 } from '@chakra-ui/react';
 
 const LoginForm = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // Get the navigate function
 
   const handleLogin = () => {
     // Perform validation if needed
@@ -19,6 +20,9 @@ const LoginForm = ({ onLogin }) => {
     // Simulate a login by storing user info in localStorage
     localStorage.setItem('user', JSON.stringify({ email }));
     onLogin();
+    
+    // Redirect to the movie page after successful login
+    navigate('/');
   };
 
   return (

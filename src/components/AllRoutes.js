@@ -33,7 +33,7 @@ function AllRoutes() {
           ) : (
             <Route path="/" element={<div>Home Page (Not logged in)</div>} />
           )}
-           <Route path="/movies/:movieId" element={<MovieCard/>} />
+           <Route path="/movies/:id" element={<MovieCard/>} />
           <Route path="/error" element={ErrorMessage} />
     </Routes>
     </>

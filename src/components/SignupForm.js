@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import {
   Box,
   Input,
@@ -12,13 +13,16 @@ const SignupForm = ({ onSignup }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); 
 
   const handleSignup = () => {
     // Perform validation if needed
 
     // Simulate signup by storing user info in localStorage
-    localStorage.setItem('user', JSON.stringify({ name, email }));
-    onSignup();
+    localStorage.setItem('user', JSON.stringify({ name, email, password }));
+    // onSignup();
+    window.alert('Signup successful!');
+    navigate('/login');
   };
 
   return (
